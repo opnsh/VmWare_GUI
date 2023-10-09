@@ -273,16 +273,16 @@ def vm_access(content):
         name = address_ip
 
     memory_stockage_GHz_frame = customtkinter.CTkFrame(root, fg_color=root.cget("background"), corner_radius=0)
-    memory_stockage_GHz_frame.pack(side="bottom", anchor="s", padx=50, pady=50, fill="both")
+    memory_stockage_GHz_frame.pack(side="bottom", anchor="s", padx=50, pady=0, fill="both")
 
     memory_frame = customtkinter.CTkFrame(memory_stockage_GHz_frame, fg_color=root.cget("background"), corner_radius=0)
     memory_frame.pack(side="left", anchor="sw", padx=50, pady=50, fill="both")
 
-    GHz_frame = customtkinter.CTkFrame(memory_stockage_GHz_frame, fg_color=root.cget("background"), corner_radius=0)
-    GHz_frame.pack(side="bottom", anchor="s", padx=50, pady=50, fill="both")
-
     tt_frame = customtkinter.CTkFrame(memory_stockage_GHz_frame, fg_color=root.cget("background"), corner_radius=0)
     tt_frame.pack(side="right", anchor="se", padx=50, pady=50, fill="both")
+
+    GHz_frame = customtkinter.CTkFrame(root, fg_color=root.cget("background"), corner_radius=0)
+    GHz_frame.pack(side="bottom", anchor="n", padx=100, pady=80)
 
     info_frame = customtkinter.CTkFrame(root, fg_color=root.cget("background"), corner_radius=0)
     info_frame.pack(side="left", anchor="nw", padx=100, pady=50)
@@ -408,13 +408,13 @@ def vm_access(content):
     label_tt.grid(row=0, column=1, sticky="w", padx=10, pady=10)
 
     label_used_tt= customtkinter.CTkLabel(tt_frame, text=f"{total_info[7]:.2f} TB used", fg_color=root.cget("background"), anchor="center")
-    label_used_tt.grid(row=1, column=1, sticky="w", padx=10, pady=5)
+    label_used_tt.grid(row=1, column=0, sticky="w", padx=10, pady=5)
 
     label_total_tt = customtkinter.CTkLabel(tt_frame, text=f"{total_info[6]:.2f} TB total", fg_color=root.cget("background"), anchor="center")
-    label_total_tt.grid(row=2, column=1, sticky="w", padx=10, pady=5)
+    label_total_tt.grid(row=1, column=1, sticky="w", padx=10, pady=5)
 
     label_free_tt = customtkinter.CTkLabel(tt_frame, text=f"{total_info[8]:.2f} TB free", fg_color=root.cget("background"), anchor="center")
-    label_free_tt.grid(row=3, column=1, sticky="w", padx=10, pady=5)
+    label_free_tt.grid(row=1, column=2, sticky="w", padx=10, pady=5)
 
     screen_size()
     
