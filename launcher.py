@@ -15,7 +15,6 @@ def generate_key():
         key_file.write(key)
 
 def load_key():
-    print(1)
     return open("encryption_key.key", "rb").read()
 
 def encrypt_password(password, key):
@@ -24,14 +23,12 @@ def encrypt_password(password, key):
     return encrypted_password
 
 def decrypt_password(encrypted_password, key):
-    print(2)
     f = Fernet(key)
     decrypted_password = f.decrypt(encrypted_password).decode()
     return decrypted_password
 
 
 def write_info(addr_entry, username_entry, password_entry):
-    print(3)
     address_ip = addr_entry.get()
     username = username_entry.get()
     password = password_entry.get()
@@ -49,7 +46,6 @@ def write_info(addr_entry, username_entry, password_entry):
 
 
 def connection_info():
-    print(4)
     count =0
     if config["vcenter_user"]:
         count +=1
@@ -105,7 +101,6 @@ def connection_info():
     return addr_entry, username_entry, password_entry
 
 def connect_login():
-    print(5)
     vcenter_user = config["vcenter_user"]
     button = customtkinter.CTkButton(master=root, text=f"Connect as {vcenter_user}", command=connect_to_vmware, cursor="hand2")
     button.place(relx=0.5, rely=0.4, anchor="center")
@@ -124,7 +119,6 @@ animation = ["-", "\\", "|", "/"]
 canvas = None
 
 def loading():
-    print(6)
     global canvas
     canvas = tk.Canvas(root, width=100, height=100, bg=root.cget("background"), highlightthickness=0)
     canvas.pack()
@@ -132,7 +126,6 @@ def loading():
     update_animation()
 
 def update_animation():
-    print(7)
     global animation_index
     if canvas:
         canvas.delete("all")
@@ -141,7 +134,6 @@ def update_animation():
         canvas.after(200, update_animation)
 
 def connect_to_vmware():
-    print(8)
     vcenter_host = config["vcenter_host"]
     vcenter_user = config["vcenter_user"]
 
@@ -164,18 +156,15 @@ def connect_to_vmware():
     return content
 
 def disconnect_from_vmware(service_instance):
-    print(9)
     connect.Disconnect(service_instance)
 
 def screen_size():
-    print(10)
     x = root.winfo_screenwidth()
     y = root.winfo_screenheight()
     margin = 30
     root.geometry(f"{x}x{y - margin}")
 
 def open_vm_url(vm_name, id_vm, connection, guild):
-    print(11)
     numMk = int(connection-1)
     char = f"{id_vm}"
     split = char.split('-')
@@ -186,7 +175,6 @@ def open_vm_url(vm_name, id_vm, connection, guild):
     webbrowser.open_new_tab(vm_url)
 
 def get_clusters_hosts_pools(clusters):
-    print(12)
     total_cpu_ghz = 0
     used_cpu_ghz = 0
     total_memory_gb = 0
@@ -222,7 +210,6 @@ def get_clusters_hosts_pools(clusters):
     return total_memory_gb, used_memory_gb, disp_memory, total_cpu_ghz, used_cpu_ghz, disp_ghz, tt, tt_use, disp_tt
 
 def vm_access(content):
-    print(13)
     address_ip = config["vcenter_host"]
     vm_list = content.viewManager.CreateContainerView(
         content.rootFolder, [vim.VirtualMachine], True
