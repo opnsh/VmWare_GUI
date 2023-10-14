@@ -45,13 +45,9 @@ To do list - Liste des prochaines features, où en est le projet :
 
 ## Interface utilisateur conviviale :❎
     Interface intuitive pour la gestion quotidienne.
-    Possibilité de personnaliser les tableaux de bord.
 
-## Documentation et support :❎
-    Documentation complète en ligne.
-
-## Évolutivité et extensibilité :❎
-    Capacité à ajouter de nouvelles fonctionnalités et intégrations au fur et à mesure des besoins.
+## Documentation :❎
+    Documentation complète.
 
 ## Sécurité des données :✅
     Chiffrement des données sensibles✅
